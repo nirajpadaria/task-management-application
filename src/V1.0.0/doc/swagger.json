@@ -1,0 +1,1205 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Task management API",
+      "contact": {},
+      "version": "v1"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3001"
+      }
+    ],
+    "paths": {
+      "/V1/user": {
+        "post": {
+          "tags": ["User"],
+          "summary": "Create User",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createUser"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createUser"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createUser"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "User created successfully",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": ["User"],
+          "summary": "Get User list",
+          "responses": {
+            "200": {
+              "description": "Return a users",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/user/{id}": {
+        "get": {
+          "tags": ["User"],
+          "summary": "Get User by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of user",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Return a user",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": ["User"],
+          "summary": "Update User by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of user",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createUser"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createUser"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createUser"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": ["User"],
+          "summary": "Delete User by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of user",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/user/{id}/projects": {
+        "get": {
+          "tags": ["User"],
+          "summary": "Get Projects by User",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of user",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Return a projects",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/V1/projects": {
+        "post": {
+          "tags": ["Project"],
+          "summary": "Create Project",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createProject"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createProject"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createProject"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Project created successfully",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": ["Project"],
+          "summary": "Get Projects list",
+          "responses": {
+            "200": {
+              "description": "Return a projects",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/projects/{id}": {
+        "get": {
+          "tags": ["Project"],
+          "summary": "Get Projects by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of project",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Return a project",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": ["Project"],
+          "summary": "Update Project by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of project",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createProject"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createProject"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createProject"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": ["Project"],
+          "summary": "Delete Project by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of projects",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/projects/{id}/tasks": {
+        "get": {
+          "tags": ["Project"],
+          "summary": "Get Tasks by projectId",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of project",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Return a tasks",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/V1/task": {
+        "post": {
+          "tags": ["Task"],
+          "summary": "Create Task",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createTask"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createTask"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createTask"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Task created successfully",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": ["Task"],
+          "summary": "Get Task list",
+          "responses": {
+            "200": {
+              "description": "Return a task",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/task/{id}": {
+        "get": {
+          "tags": ["Task"],
+          "summary": "Get Task by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of task",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Return a task",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": ["Task"],
+          "summary": "Update Task by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of task",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createTask"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createTask"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createTask"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": ["Task"],
+          "summary": "Delete Task by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "id of task",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SuccessResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Something went wrong",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/errorResponse500"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "createUser": {
+          "required": [
+            "name",
+            "email"
+          ],
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of user"
+            },
+            "email": {
+              "type": "string",
+              "description": "Email of user"
+            }
+          },
+          "example": {
+            "name": "niraj",
+            "email": "test@emaial.com"
+          }
+        },
+        "createProject": {
+            "required": [
+              "name",
+              "description",
+              "userId"
+            ],
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of project"
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of project"
+              },
+              "userId": {
+                "type": "string",
+                "description": "Id of user"
+              }
+            },
+            "example": {
+              "name": "task menegement",
+              "description": "description",
+              "userId": "fcd2cf05-f96a-4a82-bb9c-1c8c0db5042a"
+            }
+          },
+          "createTask": {
+            "required": [
+              "title",
+              "description",
+              "status",
+              "projectId"
+            ],
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Title of task"
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of task"
+              },
+              "status": {
+                "type": "string",
+                "description": "Status of task"
+              },
+              "projectId": {
+                "type": "string",
+                "description": "Id of project"
+              }
+            },
+            "example": {
+              "title": "user crud API",
+              "description": "description",
+              "status": "Not started",
+              "projectId": "fcd2cf05-f96a-4a82-bb9c-1c8c0db5042a"
+            }
+          },
+        "SuccessResponse": {
+          "type": "object",
+          "properties": {
+            "isSuccess": {
+              "type": "boolean",
+              "example": true
+            },
+            "message": {
+              "type": "string",
+              "example": "message"
+            },
+            "code": {
+              "type": "integer",
+              "example": "200"
+            },
+            "data": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        },
+        "errorResponse400": {
+          "type": "object",
+          "properties": {
+            "isSuccess": {
+              "type": "boolean",
+              "example": false
+            },
+            "message": {
+              "type": "string",
+              "example": "message"
+            },
+            "code": {
+              "type": "integer",
+              "example": "400"
+            },
+            "data": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        },
+        "errorResponse500": {
+          "type": "object",
+          "properties": {
+            "isSuccess": {
+              "type": "boolean",
+              "example": false
+            },
+            "message": {
+              "type": "string",
+              "example": "Internal server error"
+            },
+            "code": {
+              "type": "integer",
+              "example": "500"
+            },
+            "data": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "User",
+        "description": "All User module apis"
+      },
+      {
+        "name": "Project",
+        "description": "All Project module apis"
+      },
+      {
+        "name": "Task",
+        "description": "All Task module apis"
+      }
+    ]
+  }
+  
